@@ -1,0 +1,212 @@
+{
+  "createdAt": "2025-06-04T14:55:48.015Z",
+  "updatedAt": "2025-06-08T22:55:16.000Z",
+  "id": "pA2E8Hh5kkoiW2RP",
+  "name": "Frequentes - Ultra",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 10,
+              "triggerAtMinute": 22
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "142af668-78b0-4e9a-8eb2-a3fc8afd7244",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "19H93ANJuDCWlxEm3IwmTJf66Vq4xH53z4QerWKI_GFE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2110403567,
+          "mode": "list",
+          "cachedResultName": "Frequentes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19H93ANJuDCWlxEm3IwmTJf66Vq4xH53z4QerWKI_GFE/edit#gid=2110403567"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        220,
+        0
+      ],
+      "id": "adca3ded-21d1-4f3f-b45d-9d0b95daa2ff",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5PBSjJRlYFry3dh7",
+          "name": "ghbarros2005"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapperapi.com/inst_9xnyvojk6rhl/messages/text",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "jid",
+              "value": "=\"{{ $json['Número Formatado'] }}\""
+            },
+            {
+              "name": "message",
+              "value": "=Ei, estou passando apenas para te parabenizar! 👏\nVi como você mandou bem na última semana, se dedicando e vindo pra cada treino. Isso faz toda a diferença! Não desiste, tá indo muito bem! 💪\nContinue assim, os resultados vão chegar e você vai se surpreender com o que é capaz!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        0
+      ],
+      "id": "84b5ae7d-6517-4ebd-890b-a8cbfb4685d4",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "HQr0PyV1ls42WZ4C",
+          "name": "ZapperAPI Ultra"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        580,
+        0
+      ],
+      "id": "17f740bf-f051-4355-a5a9-60f7207fff49",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 90
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        0
+      ],
+      "id": "f757648e-5396-41e9-a298-6fa0e524fed4",
+      "name": "Wait",
+      "webhookId": "bd30230a-fbd3-47c1-b5cf-17f8668f25c1"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": null,
+  "pinData": {},
+  "versionId": "f6383df8-9edb-4ce0-adf4-db0e3857d4f2",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2025-05-30T12:47:07.056Z",
+      "updatedAt": "2025-05-30T12:47:07.056Z",
+      "id": "3qYN2YgD0UBlwVeT",
+      "name": "Frequentes"
+    },
+    {
+      "createdAt": "2025-06-04T14:23:22.780Z",
+      "updatedAt": "2025-06-04T14:23:22.780Z",
+      "id": "Pb4lNVOzDvskP8dr",
+      "name": "Ultra - JD. Alexandrina"
+    }
+  ]
+}
