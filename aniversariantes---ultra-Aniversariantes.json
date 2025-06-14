@@ -1,9 +1,9 @@
-{ "informações sensíveis borradas com asteríscos (*)" }
+{ "observações": "informações sensíveis borradas com asteríscos (*)" }
 
 { 
   "createdAt": "2025-06-04T14:16:13.191Z",
   "updatedAt": "2025-06-10T14:20:40.000Z",
-  "id": "5VTua7pMNBb1Qmod",
+  "id": "***",
   "name": "Aniversariantes - Ultra",
   "active": true,
   "isArchived": false,
@@ -25,7 +25,7 @@
         -800,
         180
       ],
-      "id": "69527ca4-4d15-4a7f-a597-b4471b98789b",
+      "id": "***",
       "name": "Schedule Trigger"
     },
     {
@@ -39,7 +39,7 @@
           },
           "conditions": [
             {
-              "id": "d2b94cc8-ff7b-4322-aced-95872e42824c",
+              "id": "***",
               "leftValue": "={{ $json['Notificação'] }}",
               "rightValue": "Sim",
               "operator": {
@@ -59,13 +59,13 @@
         -380,
         180
       ],
-      "id": "4ae47ad4-a679-4b77-9516-491c8c52183a",
+      "id": "***",
       "name": "If"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.zapperapi.com/inst_9xnyvojk6rhl/messages/text",
+        "url": "***",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -89,15 +89,15 @@
         -160,
         80
       ],
-      "id": "b2771941-ccbb-42cb-a0d3-0420c959f73d",
+      "id": "***",
       "name": "HTTP Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "HQr0PyV1ls42WZ4C",
+          "id": "***",
           "name": "ZapperAPI Ultra"
         },
         "httpBearerAuth": {
-          "id": "ONVZ0r8AaMpP5Rcc",
+          "id": "***",
           "name": "Bearer Auth account"
         }
       },
@@ -107,7 +107,7 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "19H93ANJuDCWlxEm3IwmTJf66Vq4xH53z4QerWKI_GFE",
+          "value": "***",
           "mode": "id"
         },
         "sheetName": {
@@ -115,7 +115,7 @@
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Aniversariantes",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19H93ANJuDCWlxEm3IwmTJf66Vq4xH53z4QerWKI_GFE/edit#gid=0"
+          "cachedResultUrl": "***"
         },
         "options": {}
       },
@@ -125,12 +125,12 @@
         -600,
         180
       ],
-      "id": "36094c45-7425-4f3a-adeb-dd5fbdf21ab0",
+      "id": "***",
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "5PBSjJRlYFry3dh7",
-          "name": "ghbarros2005"
+          "id": "***",
+          "name": "***"
         }
       }
     }
@@ -184,19 +184,19 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "daaeb116-a4fb-424d-9822-d1fc950eb8ae",
+  "versionId": "***",
   "triggerCount": 1,
   "tags": [
     {
       "createdAt": "2025-05-28T21:33:10.024Z",
       "updatedAt": "2025-05-28T21:33:10.024Z",
-      "id": "Gtq1FJvRKaRAzzfZ",
+      "id": "***",
       "name": "Aniversariantes"
     },
     {
       "createdAt": "2025-06-04T14:23:22.780Z",
       "updatedAt": "2025-06-04T14:23:22.780Z",
-      "id": "Pb4lNVOzDvskP8dr",
+      "id": "***",
       "name": "Ultra - JD. Alexandrina"
     }
   ]
