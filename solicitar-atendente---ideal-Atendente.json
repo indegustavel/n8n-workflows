@@ -1,102 +1,101 @@
+// código apenas para demonstração, ou seja, não funcional.
+// informações críticas estão ocultas com asteríscos (*)
+
 {
-  "createdAt": "2025-06-06T18:39:47.732Z",
-  "updatedAt": "2025-06-08T12:49:39.000Z",
-  "id": "E4iYazDZx5w7O9NS",
-  "name": "Solicitar atendente - Ideal",
-  "active": true,
-  "isArchived": false,
-  "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "59bf427e-aaa3-4593-84a3-cfc08d93aea2",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        0,
-        0
-      ],
-      "id": "983c4aa6-05e1-4bfc-a9af-808a641e55e4",
-      "name": "Webhook",
-      "webhookId": "59bf427e-aaa3-4593-84a3-cfc08d93aea2"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "jid",
-              "value": "556293226094"
-            },
-            {
-              "name": "message",
-              "value": "=O aluno {{ $json.body.usuario }}, solicitou atendimento humano. Seu número é {{ $json.body.numeroCliente }}."
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        220,
-        0
-      ],
-      "id": "b0dfa4d1-2509-4979-b3b8-96b63b427fc2",
-      "name": "HTTP Request",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "pZ7GVa30bhFxEsZz",
-          "name": "Unnamed credential"
-        },
-        "httpHeaderAuth": {
-          "id": "QrFaybummTh6l6pU",
-          "name": "ZapperAPI IDEAL"
-        }
-      },
-      "onError": "continueErrorOutput"
-    }
-  ],
-  "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "staticData": null,
-  "meta": null,
-  "pinData": {},
-  "versionId": "73720105-0562-4ba5-88c8-368f7d4f3e96",
-  "triggerCount": 1,
-  "tags": [
-    {
-      "createdAt": "2025-06-07T14:58:12.993Z",
-      "updatedAt": "2025-06-07T14:58:12.993Z",
-      "id": "u94iJskxqYTLBMit",
-      "name": "Atendente"
-    },
-    {
-      "createdAt": "2025-05-28T21:31:24.952Z",
-      "updatedAt": "2025-05-28T21:31:24.952Z",
-      "id": "ugqr1RnZxyk8qQYY",
-      "name": "Ideal"
-    }
-  ]
+  "createdAt": "2025-06-06T18:39:47.732Z",
+  "updatedAt": "2025-06-08T12:49:39.000Z",
+  "id": "E4iY****************",
+  "name": "Solicitar atendente - Ideal",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "************************************",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "983c4aa6-05e1-4bfc-a9af-808a641e55e4",
+      "name": "Webhook",
+      "webhookId": "************************************"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapperapi.com/inst_******************/messages/text",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "jid",
+              "value": "5562*********"
+            },
+            {
+              "name": "message",
+              "value": "=O aluno {{ $json.body.usuario }}, solicitou atendimento humano. Seu número é {{ $json.body.numeroCliente }}."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b0dfa4d1-2509-4979-b3b8-96b63b427fc2",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QrFa**********",
+          "name": "ZapperAPI IDEAL"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "************************************",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2025-06-07T14:58:12.993Z",
+      "updatedAt": "2025-06-07T14:58:12.993Z",
+      "id": "u94iJskxqYTLBMit",
+      "name": "Atendente"
+    },
+    {
+      "createdAt": "2025-05-28T21:31:24.952Z",
+      "updatedAt": "2025-05-28T21:31:24.952Z",
+      "id": "ugqr1RnZxyk8qQYY",
+      "name": "Ideal"
+    }
+  ]
 }
