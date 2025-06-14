@@ -1,5 +1,7 @@
-// código apenas para demonstração, ou seja, não funcional.
-// informações críticas estão ocultas com asteríscos (*)
+{
+  "observação": "código apenas para demonstração, ou seja, não funcional.",
+  "observação1": "críticas estão ocultas com asteríscos (*)"
+}
 
 {
   "createdAt": "2025-06-06T18:39:47.732Z",
