@@ -1,7 +1,9 @@
+{ "observações": "informações sensíveis borradas com asteríscos (*)" }
+
 {
   "createdAt": "2025-05-28T21:33:02.315Z",
   "updatedAt": "2025-06-08T12:49:31.000Z",
-  "id": "tEcA7MqR5jlBB46h",
+  "id": "***",
   "name": "Aniversariantes - Ideal",
   "active": true,
   "isArchived": false,
@@ -23,14 +25,14 @@
         -740,
         240
       ],
-      "id": "fd706887-31fe-4dd9-a0f0-8f7cdb0cb5d0",
+      "id": "***",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo",
+          "value": "***",
           "mode": "id"
         },
         "sheetName": {
@@ -38,7 +40,7 @@
           "value": 1031606980,
           "mode": "list",
           "cachedResultName": "Aniversariantes",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo/edit#gid=1031606980"
+          "cachedResultUrl": "***"
         },
         "options": {}
       },
@@ -48,12 +50,12 @@
         -540,
         240
       ],
-      "id": "a39f1405-4056-4901-baa1-aef8d8fe3c08",
+      "id": "***",
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "5PBSjJRlYFry3dh7",
-          "name": "ghbarros2005"
+          "id": "***",
+          "name": "***"
         }
       }
     },
@@ -68,7 +70,7 @@
           },
           "conditions": [
             {
-              "id": "d2b94cc8-ff7b-4322-aced-95872e42824c",
+              "id": "***",
               "leftValue": "={{ $json['Notificação'] }}",
               "rightValue": "Sim",
               "operator": {
@@ -88,13 +90,13 @@
         -320,
         240
       ],
-      "id": "f7672427-cf31-411d-a717-b6739b649b9b",
+      "id": "***",
       "name": "If"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "url": "***",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -118,15 +120,15 @@
         -100,
         140
       ],
-      "id": "27f9707b-1c54-47fc-a5fc-7f6af51332f5",
+      "id": "***",
       "name": "HTTP Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "QrFaybummTh6l6pU",
+          "id": "***",
           "name": "ZapperAPI IDEAL"
         },
         "httpBearerAuth": {
-          "id": "ONVZ0r8AaMpP5Rcc",
+          "id": "***",
           "name": "Bearer Auth account"
         }
       },
@@ -180,19 +182,19 @@
   },
   "meta": null,
   "pinData": {},
-  "versionId": "792e7bab-267e-429d-b211-12cb188d7fa9",
+  "versionId": "***",
   "triggerCount": 1,
   "tags": [
     {
       "createdAt": "2025-05-28T21:33:10.024Z",
       "updatedAt": "2025-05-28T21:33:10.024Z",
-      "id": "Gtq1FJvRKaRAzzfZ",
+      "id": "***",
       "name": "Aniversariantes"
     },
     {
       "createdAt": "2025-05-28T21:31:24.952Z",
       "updatedAt": "2025-05-28T21:31:24.952Z",
-      "id": "ugqr1RnZxyk8qQYY",
+      "id": "***",
       "name": "Ideal"
     }
   ]
