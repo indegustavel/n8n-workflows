@@ -9,6 +9,7 @@ Este projeto foi desenhado especificamente para gestores de academias que buscam
   Envio automático de lembretes de vencimento de mensalidade via WhatsApp.
   Integração com a planilha de alunos para gerar relatórios de frequência semanais.
   Envio automático de mensagens de felicitações para aniversariantes.
+  Ferramenta para meu Agente de IA Solicitar atendente humano quando necessário.
 
 - Ferramentas
   N8N: Plataforma principal para a criação dos workflows.
