@@ -1,7 +1,9 @@
+{ "observações": "informações sensíveis censuradas com asteríscos (*)" }
+
 {
   "createdAt": "2025-05-30T12:38:08.202Z",
   "updatedAt": "2025-06-08T22:55:19.000Z",
-  "id": "xHp6UX1tlVAx8w9O",
+  "id": "***",
   "name": "Frequentes - Ideal",
   "active": false,
   "isArchived": false,
@@ -23,14 +25,14 @@
         -140,
         0
       ],
-      "id": "b2d48f69-f4d7-45a4-9bed-144d8b6e1848",
+      "id": "***",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo",
+          "value": "***",
           "mode": "id"
         },
         "sheetName": {
@@ -38,7 +40,7 @@
           "value": 2070752875,
           "mode": "list",
           "cachedResultName": "Frequentes",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo/edit#gid=2070752875"
+          "cachedResultUrl": "***"
         },
         "options": {}
       },
@@ -48,19 +50,19 @@
         80,
         0
       ],
-      "id": "0506102a-9fb5-445c-b5b4-a74564b754e9",
+      "id": "***",
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "5PBSjJRlYFry3dh7",
-          "name": "ghbarros2005"
+          "id": "***",
+          "name": "***"
         }
       }
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "url": "***",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -84,13 +86,13 @@
         1120,
         0
       ],
-      "id": "0fba6d83-2ca9-4a12-af76-b540cb4e86d4",
+      "id": "***",
       "name": "HTTP Request",
       "retryOnFail": true,
       "maxTries": 2,
       "credentials": {
         "httpHeaderAuth": {
-          "id": "QrFaybummTh6l6pU",
+          "id": "***",
           "name": "ZapperAPI IDEAL"
         }
       },
@@ -106,7 +108,7 @@
         680,
         0
       ],
-      "id": "17234196-a0c3-4f26-b2a8-2ce8048c183f",
+      "id": "***",
       "name": "Loop Over Items"
     },
     {
@@ -119,9 +121,9 @@
         920,
         0
       ],
-      "id": "d6de2ac5-f9a6-4d28-8602-0285c3e65356",
+      "id": "***",
       "name": "Wait",
-      "webhookId": "bd30230a-fbd3-47c1-b5cf-17f8668f25c1"
+      "webhookId": "***"
     },
     {
       "parameters": {
@@ -134,7 +136,7 @@
           },
           "conditions": [
             {
-              "id": "14ad03e4-4c11-46c4-b868-c8944fbb32d0",
+              "id": "***",
               "leftValue": "={{ $json['Notificação'] }}",
               "rightValue": "Sim",
               "operator": {
@@ -154,7 +156,7 @@
         300,
         0
       ],
-      "id": "4a03834e-ffb1-44d7-bb72-0c1072676941",
+      "id": "***",
       "name": "If"
     }
   ],
@@ -241,19 +243,19 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "26c37f04-003b-48f2-98e4-e5aed0d93083",
+  "versionId": "***",
   "triggerCount": 1,
   "tags": [
     {
       "createdAt": "2025-05-30T12:47:07.056Z",
       "updatedAt": "2025-05-30T12:47:07.056Z",
-      "id": "3qYN2YgD0UBlwVeT",
+      "id": "***",
       "name": "Frequentes"
     },
     {
       "createdAt": "2025-05-28T21:31:24.952Z",
       "updatedAt": "2025-05-28T21:31:24.952Z",
-      "id": "ugqr1RnZxyk8qQYY",
+      "id": "***",
       "name": "Ideal"
     }
   ]
