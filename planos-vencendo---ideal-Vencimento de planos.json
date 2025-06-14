@@ -1,0 +1,201 @@
+{
+  "createdAt": "2025-05-27T12:04:49.041Z",
+  "updatedAt": "2025-06-08T12:48:33.000Z",
+  "id": "U8i7Py0OWBmueXfF",
+  "name": "Planos vencendo - Ideal",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "df8b4a8f-ad6c-468f-8b98-2a2130504d77",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1127999613,
+          "mode": "list",
+          "cachedResultName": "Faturas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo/edit#gid=1127999613"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        220,
+        0
+      ],
+      "id": "dbf10807-1739-4583-94c4-998152983002",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5PBSjJRlYFry3dh7",
+          "name": "ghbarros2005"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d2b94cc8-ff7b-4322-aced-95872e42824c",
+              "leftValue": "={{ $json['Notificação'] }}",
+              "rightValue": "Notificação",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "cbbe3b00-8e79-4aec-9487-9d5dfb6ee543",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "jid",
+              "value": "=\"{{ $json['Número Formatado'] }}\""
+            },
+            {
+              "name": "message",
+              "value": "=Olá, bom dia! Estou passando pra te avisar que o seu plano se encerra depois de amanhã, dia {{ $json.Data }}. Não deixe de renovar para juntos podermos atingir seus maiores objetivos!! Estamos à sua disposição! ☺🏋‍♂"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        -100
+      ],
+      "id": "0cde5924-6951-439f-a1f5-88c58b9b3e67",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QrFaybummTh6l6pU",
+          "name": "ZapperAPI IDEAL"
+        },
+        "httpBearerAuth": {
+          "id": "ONVZ0r8AaMpP5Rcc",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "b70ad0ef-fdcc-4d27-a1dd-3a5d2d1e7444",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2025-05-28T21:31:43.033Z",
+      "updatedAt": "2025-05-28T21:31:43.033Z",
+      "id": "RD7loOzUP4W0VnAq",
+      "name": "Vencimento de planos"
+    },
+    {
+      "createdAt": "2025-05-28T21:31:24.952Z",
+      "updatedAt": "2025-05-28T21:31:24.952Z",
+      "id": "ugqr1RnZxyk8qQYY",
+      "name": "Ideal"
+    }
+  ]
+}
