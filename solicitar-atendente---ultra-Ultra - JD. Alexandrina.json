@@ -1,7 +1,11 @@
 {
+"observação":"informações sensíveis borradas com asteríscos"
+}
+
+{
   "createdAt": "2025-06-07T14:58:35.177Z",
   "updatedAt": "2025-06-08T12:49:55.000Z",
-  "id": "nojCxmIb29Vylo33",
+  "id": "****",
   "name": "Solicitar atendente -  Ultra",
   "active": true,
   "isArchived": false,
@@ -9,7 +13,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.zapperapi.com/inst_9xnyvojk6rhl/messages/text",
+        "url": "****",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -17,7 +21,7 @@
           "parameters": [
             {
               "name": "jid",
-              "value": "556295334393"
+              "value": "****"
             },
             {
               "name": "message",
@@ -33,11 +37,11 @@
         80,
         -20
       ],
-      "id": "aaa3cb96-29d1-4609-85c8-af1f75843995",
+      "id": "****",
       "name": "HTTP Request",
       "credentials": {
         "oAuth2Api": {
-          "id": "pZ7GVa30bhFxEsZz",
+          "id": "****",
           "name": "Unnamed credential"
         },
         "httpHeaderAuth": {
@@ -50,7 +54,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "4531601b-63e0-4604-8526-f8cb858813e5",
+        "path": "****",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -59,9 +63,9 @@
         -180,
         -20
       ],
-      "id": "837594c9-a274-4fa0-b4de-23d226f563f5",
+      "id": "****",
       "name": "Webhook",
-      "webhookId": "4531601b-63e0-4604-8526-f8cb858813e5"
+      "webhookId": "****"
     }
   ],
   "connections": {
@@ -83,7 +87,7 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "20d74074-7633-43d2-96bd-9a43c6020178",
+  "versionId": "****",
   "triggerCount": 1,
   "tags": [
     {
@@ -95,7 +99,7 @@
     {
       "createdAt": "2025-06-07T14:58:12.993Z",
       "updatedAt": "2025-06-07T14:58:12.993Z",
-      "id": "u94iJskxqYTLBMit",
+      "id": "****",
       "name": "Atendente"
     }
   ]
