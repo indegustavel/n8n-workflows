@@ -1,0 +1,260 @@
+{
+  "createdAt": "2025-05-30T12:38:08.202Z",
+  "updatedAt": "2025-06-08T22:55:19.000Z",
+  "id": "xHp6UX1tlVAx8w9O",
+  "name": "Frequentes - Ideal",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -140,
+        0
+      ],
+      "id": "b2d48f69-f4d7-45a4-9bed-144d8b6e1848",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2070752875,
+          "mode": "list",
+          "cachedResultName": "Frequentes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo/edit#gid=2070752875"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        80,
+        0
+      ],
+      "id": "0506102a-9fb5-445c-b5b4-a74564b754e9",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5PBSjJRlYFry3dh7",
+          "name": "ghbarros2005"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "jid",
+              "value": "=\"{{ $json['Número formatado'] }}\""
+            },
+            {
+              "name": "message",
+              "value": "=Ei, estou passando apenas para te parabenizar! 👏\nVi como você mandou bem na última semana, se dedicando e vindo pra cada treino. Isso faz toda a diferença! Não desiste, tá indo muito bem! 💪\nContinue assim, os resultados vão chegar e você vai se surpreender com o que é capaz!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        0
+      ],
+      "id": "0fba6d83-2ca9-4a12-af76-b540cb4e86d4",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QrFaybummTh6l6pU",
+          "name": "ZapperAPI IDEAL"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        680,
+        0
+      ],
+      "id": "17234196-a0c3-4f26-b2a8-2ce8048c183f",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        0
+      ],
+      "id": "d6de2ac5-f9a6-4d28-8602-0285c3e65356",
+      "name": "Wait",
+      "webhookId": "bd30230a-fbd3-47c1-b5cf-17f8668f25c1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "14ad03e4-4c11-46c4-b868-c8944fbb32d0",
+              "leftValue": "={{ $json['Notificação'] }}",
+              "rightValue": "Sim",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        0
+      ],
+      "id": "4a03834e-ffb1-44d7-bb72-0c1072676941",
+      "name": "If"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "26c37f04-003b-48f2-98e4-e5aed0d93083",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2025-05-30T12:47:07.056Z",
+      "updatedAt": "2025-05-30T12:47:07.056Z",
+      "id": "3qYN2YgD0UBlwVeT",
+      "name": "Frequentes"
+    },
+    {
+      "createdAt": "2025-05-28T21:31:24.952Z",
+      "updatedAt": "2025-05-28T21:31:24.952Z",
+      "id": "ugqr1RnZxyk8qQYY",
+      "name": "Ideal"
+    }
+  ]
+}
