@@ -1,0 +1,199 @@
+{
+  "createdAt": "2025-05-28T21:33:02.315Z",
+  "updatedAt": "2025-06-08T12:49:31.000Z",
+  "id": "tEcA7MqR5jlBB46h",
+  "name": "Aniversariantes - Ideal",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9,
+              "triggerAtMinute": 20
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -740,
+        240
+      ],
+      "id": "fd706887-31fe-4dd9-a0f0-8f7cdb0cb5d0",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1031606980,
+          "mode": "list",
+          "cachedResultName": "Aniversariantes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WPY4lBgwdhRMP5Sop2c4uZCvivwUaTTAmnPbh-WFDRo/edit#gid=1031606980"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -540,
+        240
+      ],
+      "id": "a39f1405-4056-4901-baa1-aef8d8fe3c08",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5PBSjJRlYFry3dh7",
+          "name": "ghbarros2005"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d2b94cc8-ff7b-4322-aced-95872e42824c",
+              "leftValue": "={{ $json['Notificação'] }}",
+              "rightValue": "Sim",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        240
+      ],
+      "id": "f7672427-cf31-411d-a717-b6739b649b9b",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "jid",
+              "value": "=\"{{ $json['Número formatado'] }}\""
+            },
+            {
+              "name": "message",
+              "value": "=Olá {{ $json['Primeiro Nome'] }}, Tudo bem? Esperamos que sim!\nHoje é o seu dia, e queremos te parabenizar por mais um ano de vida e de conquistas! Que você continue com essa força, foco e determinação dentro e fora da academia. \nLembre-se: cada dia é uma nova chance de evoluir. Continue firme, cuidando do seu corpo, mente e sonhos!\nConte sempre com a gente! \n💪Equipe Ideal 🎉"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        140
+      ],
+      "id": "27f9707b-1c54-47fc-a5fc-7f6af51332f5",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QrFaybummTh6l6pU",
+          "name": "ZapperAPI IDEAL"
+        },
+        "httpBearerAuth": {
+          "id": "ONVZ0r8AaMpP5Rcc",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": null,
+  "pinData": {},
+  "versionId": "792e7bab-267e-429d-b211-12cb188d7fa9",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2025-05-28T21:33:10.024Z",
+      "updatedAt": "2025-05-28T21:33:10.024Z",
+      "id": "Gtq1FJvRKaRAzzfZ",
+      "name": "Aniversariantes"
+    },
+    {
+      "createdAt": "2025-05-28T21:31:24.952Z",
+      "updatedAt": "2025-05-28T21:31:24.952Z",
+      "id": "ugqr1RnZxyk8qQYY",
+      "name": "Ideal"
+    }
+  ]
+}
