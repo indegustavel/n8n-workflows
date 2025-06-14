@@ -1,7 +1,11 @@
 {
+"observação":"informações sensíveis borradas com asteríscos"
+}
+
+{
   "createdAt": "2025-06-06T18:39:47.732Z",
   "updatedAt": "2025-06-08T12:49:39.000Z",
-  "id": "E4iYazDZx5w7O9NS",
+  "id": "****",
   "name": "Solicitar atendente - Ideal",
   "active": true,
   "isArchived": false,
@@ -9,7 +13,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "59bf427e-aaa3-4593-84a3-cfc08d93aea2",
+        "path": "****",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -18,14 +22,14 @@
         0,
         0
       ],
-      "id": "983c4aa6-05e1-4bfc-a9af-808a641e55e4",
+      "id": "****",
       "name": "Webhook",
-      "webhookId": "59bf427e-aaa3-4593-84a3-cfc08d93aea2"
+      "webhookId": "****"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.zapperapi.com/inst_2p7jbz474q8a/messages/text",
+        "url": "****",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -33,7 +37,7 @@
           "parameters": [
             {
               "name": "jid",
-              "value": "556293226094"
+              "value": "****"
             },
             {
               "name": "message",
@@ -49,15 +53,15 @@
         220,
         0
       ],
-      "id": "b0dfa4d1-2509-4979-b3b8-96b63b427fc2",
+      "id": "****",
       "name": "HTTP Request",
       "credentials": {
         "oAuth2Api": {
-          "id": "pZ7GVa30bhFxEsZz",
+          "id": "****",
           "name": "Unnamed credential"
         },
         "httpHeaderAuth": {
-          "id": "QrFaybummTh6l6pU",
+          "id": "****",
           "name": "ZapperAPI IDEAL"
         }
       },
@@ -89,13 +93,13 @@
     {
       "createdAt": "2025-06-07T14:58:12.993Z",
       "updatedAt": "2025-06-07T14:58:12.993Z",
-      "id": "u94iJskxqYTLBMit",
+      "id": "****",
       "name": "Atendente"
     },
     {
       "createdAt": "2025-05-28T21:31:24.952Z",
       "updatedAt": "2025-05-28T21:31:24.952Z",
-      "id": "ugqr1RnZxyk8qQYY",
+      "id": "****",
       "name": "Ideal"
     }
   ]
